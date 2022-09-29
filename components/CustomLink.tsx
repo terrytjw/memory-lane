@@ -9,7 +9,7 @@ type CustomLinkProps = {
 const CustomLink = ({ children, href, className }: CustomLinkProps) => {
   return (
     <Link href={href}>
-      <a className={`hover:text-gray-500 ease-in duration-300 ${className}`}>
+      <a className={`hover:text-gray-500 transition-all ${className}`}>
         {children}
       </a>
     </Link>

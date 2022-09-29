@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Hero from "../components/Hero";
+import PhotoGrid from "../components/PhotoGrid";
+import Slider from "../components/Slider";
 
 const Home: NextPage = () => {
   return (
@@ -16,9 +18,11 @@ const Home: NextPage = () => {
 
       <main>
         <Hero
-          heading="Memory Lane"
+          heading="Memory"
           message="Capturing moments and keeping them alive."
         />
+        <Slider />
+        <PhotoGrid />
       </main>
     </div>
   );

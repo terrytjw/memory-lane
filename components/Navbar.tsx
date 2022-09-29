@@ -4,26 +4,24 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 const options = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/#about" },
-  { name: "Gallery", href: "/#gallery" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "Instagram", href: "#instagram" },
 ];
 
 const Navbar = () => {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(true);
-  const [color, setColor] = useState("white");
-  const [bgColor, setBgColor] = useState("transparent");
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
-        setColor("black");
-        setBgColor("white");
+        setIsScrolledDown(true);
       } else {
-        setColor("white");
-        setBgColor("transparent");
+        setIsScrolledDown(false);
       }
     };
 
+    // Listen to scroll events
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -37,11 +35,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed left-0 top-0 w-full z-10 bg-${bgColor}`}>
+    <nav
+      className={`fixed left-0 top-0 w-full z-10 ${
+        isScrolledDown ? `bg-white` : `bg-transparent`
+      } transition-colors`}
+    >
       <div
-        className={`max-w-[1240px] m-auto p-4 flex justify-between items-center text-${color}`}
+        className={`max-w-[1240px] m-auto p-4 flex justify-between items-center ${
+          isScrolledDown ? `text-black` : `text-white`
+        }`}
       >
-        <CustomLink href="/" className="font-bold text-2xl">
+        <CustomLink href="/" className="font-bold text-3xl">
           Memory
         </CustomLink>
         <ul className="hidden sm:flex">
@@ -56,7 +60,7 @@ const Navbar = () => {
 
         {/* Mobile Button */}
         <button
-          className="block sm:hidden z-10 text-white"
+          className={`block sm:hidden z-10 ${isMobileNavOpen && `text-white`}`}
           onClick={handleMobileMenu}
         >
           {isMobileNavOpen ? (
