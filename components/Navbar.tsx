@@ -46,7 +46,7 @@ const Navbar = () => {
         }`}
       >
         <CustomLink href="/" className="font-bold text-3xl">
-          Memory
+          Memories
         </CustomLink>
         <ul className="hidden sm:flex">
           {options.map((option) => {

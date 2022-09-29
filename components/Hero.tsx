@@ -16,7 +16,9 @@ const Hero = ({ heading, message }: HeroProps) => {
       <div className="p-5 text-white z-[1] mt-[-10rem]">
         <h1 className="text-5xl font-bold">{heading}</h1>
         <h2 className="py-5 text-xl">{message}</h2>
-        <Button onClick={() => router.push("#gallery")}>View more</Button>
+        <Button className="mt-4" onClick={() => router.push("#gallery")}>
+          View more
+        </Button>
       </div>
     </div>
   );

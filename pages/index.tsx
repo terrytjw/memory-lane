@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Memory</title>
+        <title>Memories</title>
         <meta
           name="description"
           content="Take a trip down memory lane with me."
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
       <main>
         <Hero
-          heading="Memory"
+          heading="Memories"
           message="Capturing moments and keeping them alive."
         />
         <Slider />
